@@ -1,5 +1,8 @@
 import axios from "axios";
-const baseUrl = "https://notepadbackend-3pv9.onrender.com/api/notes";
+
+const baseUrl = import.meta.env.PROD
+  ? import.meta.env.VITE_BACKEND_URL
+  : "http://localhost:3003/api/persons";
 
 const getAll = () => axios.get(baseUrl).then((res) => res.data);
 const create = (newPerson) =>
